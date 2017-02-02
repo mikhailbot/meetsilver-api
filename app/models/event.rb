@@ -11,7 +11,7 @@ class Event < ApplicationRecord
 
   def generate_slug
     begin
-      self.slug = SecureRandom.hex(4)
+      self.slug = SecureRandom.urlsafe_base64(6)
     end while Event.where(slug: self.slug).exists?
   end
 end
