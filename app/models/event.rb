@@ -1,6 +1,9 @@
 class Event < ApplicationRecord
   before_create :generate_slug
 
+  validates :title, presence: true
+  validates :slug, uniqueness: true
+  
   has_many :options, inverse_of: :event
 
   # Allows for creation of Options at the same time as the event
