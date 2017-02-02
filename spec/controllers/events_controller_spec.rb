@@ -1,13 +1,13 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe EventsController, :type => :controller do
-  describe "GET #index" do
+  describe 'GET #index' do
     before(:each) do
       create_list(:event, 3)
       get :index
     end
 
-    it "responds successfully with an HTTP 200 status code" do
+    it 'responds successfully with an HTTP 200 status code' do
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
@@ -23,7 +23,7 @@ RSpec.describe EventsController, :type => :controller do
       get :show, params: { slug: event.slug }
     end
 
-    it "responds successfully with an HTTP 200 status code" do
+    it 'responds successfully with an HTTP 200 status code' do
       expect(response).to be_success
       expect(response).to have_http_status(200)
     end
