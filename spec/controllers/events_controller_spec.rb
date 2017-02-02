@@ -17,6 +17,23 @@ RSpec.describe EventsController, :type => :controller do
     end
   end
 
+  describe 'GET #show' do
+    let(:event) { create(:event) }
+    before(:each) do
+      get :show, params: { slug: event.slug }
+    end
+
+    it "responds successfully with an HTTP 200 status code" do
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
+    end
+
+    it 'responds successfully with the correct event' do
+      # byebug
+      expect(response.body).to include event.title
+    end
+  end
+
   describe 'POST #create' do
     context 'with valid event and option attributes' do
       let(:event_attributes) { attributes_for(:event) }
