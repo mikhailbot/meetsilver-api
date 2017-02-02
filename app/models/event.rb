@@ -1,7 +1,17 @@
 class Event < ApplicationRecord
-    has_many :options, inverse_of: :event
+  before_create :generate_slug
 
-    # Allows for creation of Options at the same time as the event
-    # https://forum.upcase.com/t/api-design-routing-with-nested-resources/6570
-    accepts_nested_attributes_for :options
+  has_many :options, inverse_of: :event
+
+  # Allows for creation of Options at the same time as the event
+  # https://forum.upcase.com/t/api-design-routing-with-nested-resources/6570
+  accepts_nested_attributes_for :options
+
+  private
+
+  def generate_slug
+    begin
+      self.slug = SecureRandom.hex(4)
+    end while Event.where(slug: self.slug).exists?
+  end
 end
