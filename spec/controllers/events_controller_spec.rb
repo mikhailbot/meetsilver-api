@@ -29,7 +29,6 @@ RSpec.describe EventsController, :type => :controller do
     end
 
     it 'responds successfully with the correct event' do
-      # byebug
       expect(response.body).to include event.title
     end
   end
