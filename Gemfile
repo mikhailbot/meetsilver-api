@@ -34,7 +34,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails', '~> 4.8'
   gem 'faker', '~> 1.7.2'
-  gem 'ruby-debug-ide', '~> 0.4.32'
+  gem 'ruby-debug-ide', '~> 0.6'
   gem 'debase', '~> 0.2.1'
 end
 
