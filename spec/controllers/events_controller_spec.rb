@@ -30,6 +30,7 @@ RSpec.describe EventsController, :type => :controller do
 
     it 'responds successfully with the correct event' do
       expect(response.body).to include event.title
+      expect(response.body).to include event.location
     end
   end
 
