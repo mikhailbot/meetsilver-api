@@ -29,8 +29,10 @@ RSpec.describe EventsController, :type => :controller do
     end
 
     it 'responds successfully with the correct event' do
-      expect(response.body).to include event.title
-      expect(response.body).to include event.location
+      expect_json(title: event.title)
+      expect_json(location: event.location)
+      expect_json(slug: event.slug)
+      expect_json_types(options: :array_of_objects)
     end
   end
 
@@ -47,7 +49,11 @@ RSpec.describe EventsController, :type => :controller do
       end
 
       it 'responds with new post' do
-        expect(JSON.parse(response.body)).to include 'id'
+        expect_json_types(id: :int)
+        expect_json_types(title: :string)
+        expect_json_types(location: :string)
+        expect_json_types(slug: :string)
+        expect_json_types(options: :array_of_objects)
       end
 
     end
