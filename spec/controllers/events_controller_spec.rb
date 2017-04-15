@@ -1,22 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe EventsController, :type => :controller do
-  describe 'GET #index' do
-    before(:each) do
-      create_list(:event, 3)
-      get :index
-    end
-
-    it 'responds successfully with an HTTP 200 status code' do
-      expect(response).to be_success
-      expect(response).to have_http_status(200)
-    end
-
-    it 'responds successfully with 3 events' do
-      expect(JSON.parse(response.body).count).to be 3
-    end
-  end
-
   describe 'GET #show' do
     let(:event) { create(:event) }
     before(:each) do
