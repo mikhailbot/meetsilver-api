@@ -1,4 +1,4 @@
-# LetsMeet API
+# MeetSilver API
 
 [![Build Status](https://travis-ci.org/mikhaildelport/meetsilver-api.svg?branch=master)](https://travis-ci.org/mikhaildelport/meetsilver-api)
 
