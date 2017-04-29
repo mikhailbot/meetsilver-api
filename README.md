@@ -1,6 +1,6 @@
 # MeetSilver API
 
-[![Build Status](https://travis-ci.org/mikhaildelport/meetsilver-api.svg?branch=master)](https://travis-ci.org/mikhaildelport/meetsilver-api)
+[![Build Status](https://travis-ci.org/mikhailbot/meetsilver-api.svg?branch=master)](https://travis-ci.org/mikhailbot/meetsilver-api)
 
 API backend for a new side project using Rails 5 API mode.
 
@@ -35,11 +35,9 @@ API backend for a new side project using Rails 5 API mode.
   "location": "Hosnian Prime",
   "options": [
     {
-      "id": 1,
       "date": "2017-04-18T00:00:00.000Z"
     },
     {
-      "id": 2,
       "date": "2017-04-18T00:00:00.000Z"
     }
   ]
