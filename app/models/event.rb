@@ -1,21 +1,15 @@
 class Event < ApplicationRecord
-  before_create :generate_slug
+  include Tokenable
+
+  before_validation(on: :create) { generate_token(:slug, 6) }
 
   validates :title, presence: true
   validates :location, presence: true
   validates :slug, uniqueness: true
-  
+
   has_many :options, inverse_of: :event
 
   # Allows for creation of Options at the same time as the event
   # https://forum.upcase.com/t/api-design-routing-with-nested-resources/6570
   accepts_nested_attributes_for :options
-
-  private
-
-  def generate_slug
-    begin
-      self.slug = SecureRandom.urlsafe_base64(6)
-    end while Event.where(slug: self.slug).exists?
-  end
 end
